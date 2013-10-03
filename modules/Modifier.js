@@ -5,24 +5,36 @@
      * @author Adam Timberlake
      * @constructor
      */
-    $window.Sequin.Modifier = {
+    $window.Sequin.Modifier = function() {};
+
+    /**
+     * @property prototype
+     * @type {Object}
+     */
+    $window.Sequin.Modifier.prototype = {
+
+        /**
+         * @property successor
+         * @type {Object}
+         */
+        successor: {},
 
         /**
          * @method add
          * @param classes {Array}
-         * @return {Sequin.Timers}
+         * @return {Sequin.Timer}
          */
         add: function(classes) {
-
+            return this.successor;
         },
 
         /**
          * @method remove
          * @param classes {Array}
-         * @return {Sequin.Timers}
+         * @return {Sequin.Timer}
          */
         remove: function(classes) {
-
+            return this.successor;
         }
 
     };

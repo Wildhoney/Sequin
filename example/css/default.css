@@ -1,0 +1,17 @@
+section.container {
+    overflow: hidden;
+}
+
+section.container div {
+    float: left;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    transition: .35s all;
+    background-color: pink;
+    margin-right: 5px;
+}
+
+section.container div.red {
+    background-color: palevioletred;
+}

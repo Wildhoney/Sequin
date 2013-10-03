@@ -5,7 +5,19 @@
      * @author Adam Timberlake
      * @constructor
      */
-    $window.Sequin.Elements = {
+    $window.Sequin.Elements = function() {};
+
+    /**
+     * @property prototype
+     * @type {Object}
+     */
+    $window.Sequin.Elements.prototype = {
+
+        /**
+         * @property successor
+         * @type {Object}
+         */
+        successor: {},
 
         /**
          * @method with
@@ -13,9 +25,7 @@
          * @return {Sequin.Modifier}
          */
         with: function(elements) {
-
-            return
-
+            return this.successor;
         }
 
     };
