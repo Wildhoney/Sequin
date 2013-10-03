@@ -10,9 +10,11 @@
         /**
          * @method with
          * @param elements {Array}
-         * @return {Sequin.Modifiers}
+         * @return {Sequin.Modifier}
          */
         with: function(elements) {
+
+            return
 
         }
 

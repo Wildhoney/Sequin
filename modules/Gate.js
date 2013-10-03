@@ -1,18 +1,17 @@
 (function($window) {
 
     /**
-     * @module Sequin.Timers
+     * @module Sequin.Gate
      * @author Adam Timberlake
      * @constructor
      */
-    $window.Sequin.Timers = {
+    $window.Sequin.Gate = {
 
         /**
          * @method with
-         * @param times {Array}
-         * @return {Sequin.Gates}
+         * @return {Sequin.Elements}
          */
-        after: function(times) {
+        then: function() {
 
         }
 

@@ -1,11 +1,11 @@
 (function($window) {
 
     /**
-     * @module Sequin.Modifiers
+     * @module Sequin.Modifier
      * @author Adam Timberlake
      * @constructor
      */
-    $window.Sequin.Modifiers = {
+    $window.Sequin.Modifier = {
 
         /**
          * @method add
