@@ -26,3 +26,7 @@ section.container div.green {
 section.container div.orange {
     background-color: coral;
 }
+
+section.container div.circle {
+    border-radius: 200px;
+}

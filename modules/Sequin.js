@@ -140,9 +140,9 @@
 
                 $scope._brain[$pointerIndex].forEach(function(instruction, index) {
 
-                    var currentTime                 = times[index] || time;
+                    var currentTime                 = (times[index] || time);
                     time                            = currentTime;
-                    instruction.afterMilliseconds   = currentTime;
+                    instruction.afterMilliseconds   = currentTime + $timingOffset;
 
                 });
 

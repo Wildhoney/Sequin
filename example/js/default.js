@@ -4,15 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         .with(['first', 'second', 'third', 'fourth'])
             .add(['pink', 'blue', 'green', 'orange'])
-                .after(100)
-                    .within(100)
+                .after(500)
+                    .within(500)
 
         .then()
 
         .with(['first', 'second', 'third', 'fourth'])
             .remove(['pink', 'blue', 'green', 'orange'])
-                .after([2000])
-                    .within([4000])
+                .after([1000, 2000])
+                    .within(4000)
+        .then()
+
+        .with(['first', 'second', 'third', 'fourth'])
+            .add(['circle', 'circle', 'circle', 'circle'])
+                .after(4000)
+                    .within(500)
 
         .run()
 
