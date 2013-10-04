@@ -1,13 +1,25 @@
 (function($window) {
 
+    "use strict";
+
     /**
      * @property $scope
      * @type {Object}
      */
     var $scope;
 
+    /**
+     * @property $pointerIndex
+     * @type {Number}
+     * @default 0
+     */
     var $pointerIndex = 0;
 
+    /**
+     * @property $timingOffset
+     * @type {Number}
+     * @default 0
+     */
     var $timingOffset = 0;
 
     /**

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         .with(['first', 'second', 'third', 'fourth'])
             .remove(['pink', 'blue', 'green', 'orange'])
-                .after([100, 100, 100, 100])
+                .after([2000, 500, 1000, 100])
                     .within([4000, 4000, 4000, 4000])
 
         .run()

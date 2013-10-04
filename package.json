@@ -1,0 +1,25 @@
+{
+  "name": "Sequin",
+  "buildName": "sequin",
+  "version": "0.0.1",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wildhoney/Sequin.git"
+  },
+  "author": "Adam Timberlake",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/Sequin/issues"
+  },
+  "dependencies": {
+    "grunt-cli": "~0.1.9",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-jshint": "~0.6.4"
+  }
+}
