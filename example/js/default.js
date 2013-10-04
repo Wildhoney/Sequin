@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    sequin.with('welcome').add('hidden').after(3000).within(500);
+
     sequin
 
         .with(['first', 'second', 'third', 'fourth'])
@@ -20,6 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 .after(4000)
                     .within(500)
 
-        .run()
+        .run();
 
 }, false);

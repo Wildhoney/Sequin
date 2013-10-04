@@ -2,7 +2,23 @@ section.container {
     overflow: hidden;
 }
 
-section.container div {
+section.container div.welcome {
+    background-color: lightskyblue;
+    height: 64px;
+    line-height: 64px;
+    color: white;
+    font-size: 28px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .25);
+    padding: 0 16px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+section.container div.welcome.hidden {
+    margin-top: -64px;
+}
+
+section.container div.box {
     float: left;
     overflow: hidden;
     width: 150px;

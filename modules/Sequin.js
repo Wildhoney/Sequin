@@ -234,7 +234,8 @@
         with: function(elements) {
 
             // Configure the scope for which we'll use instead of `this`.
-            $scope = this;
+            $scope          = this;
+            $timingOffset   = 0;
 
             return this.elements.with(elements);
 
