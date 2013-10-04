@@ -6,6 +6,8 @@
      */
     var $scope;
 
+    var $pointerIndex = 0;
+
     /**
      * @module Sequin
      * @author Adam Timberlake
@@ -26,6 +28,8 @@
          */
         _brain: [],
 
+        _currentIndex: 0,
+
         /**
          * @property elements
          * @type {Object}
@@ -40,18 +44,23 @@
             with: function(classNames) {
 
                 // Reset our brain because `with` is the beginning of the end.
-                $scope._brain = [];
+//                $scope._brain = [];
+
+                var append = [];
 
                 classNames.forEach(function(className) {
 
                     // As this is a fresh brain, this is our chance to set it up.
-                    $scope._brain.push({
+                    append.push({
                         elements    : $window.document.getElementsByClassName(className),
                         classes     : { add: null, remove: null },
                         milliseconds: 0
                     });
 
                 });
+
+                $scope._brain.push(append);
+                $pointerIndex = ($scope._brain.length - 1);
 
                 return $scope.modifier;
 
@@ -73,7 +82,7 @@
             add: function(classNames) {
 
                 classNames.forEach(function(className, index) {
-                    $scope._brain[index].classes.add = className;
+                    $scope._brain[$pointerIndex][index].classes.add = className;
                 });
 
                 return $scope.timer;
@@ -88,7 +97,7 @@
             remove: function(classNames) {
 
                 classNames.forEach(function(className, index) {
-                    $scope._brain[index].classes.remove = className;
+                    $scope._brain[$pointerIndex][index].classes.remove = className;
                 });
 
                 return $scope.timer;
@@ -111,7 +120,7 @@
             after: function(times) {
 
                 times.forEach(function(time, index) {
-                    $scope._brain[index].milliseconds = time;
+                    $scope._brain[$pointerIndex][index].milliseconds = time;
                 });
 
                 return $scope.gate;
@@ -127,28 +136,38 @@
         gate: {
 
             /**
-             * @method with
+             * @method then
              * @return {Object}
              */
             then: function() {
+                return $scope.elements;
+            },
 
-                $scope._brain.forEach(function(item) {
+            run: function() {
 
-                    setTimeout(function() {
+                console.log($scope._brain);
 
-                        var addClasses      = this.classes.add,
-                            removeClasses   = this.classes.remove;
+                $scope._brain.forEach(function(instructions) {
 
-                        for (var index = 0, maxLen = item.elements.length; index < maxLen; index++) {
+                    instructions.forEach(function(instruction) {
 
-                            var node = this.elements[index];
+                        setTimeout(function() {
 
-                            node.classList.add(addClasses);
-                            node.classList.remove(removeClasses);
+                            var addClasses      = this.classes.add,
+                                removeClasses   = this.classes.remove;
 
-                        }
+                            for (var index = 0, maxLen = instruction.elements.length; index < maxLen; index++) {
 
-                    }.bind(item), item.milliseconds);
+                                var node = this.elements[index];
+
+                                node.classList.add(addClasses);
+                                node.classList.remove(removeClasses);
+
+                            }
+
+                        }.bind(instruction), instruction.milliseconds);
+
+                    });
 
                 });
 

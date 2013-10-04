@@ -7,7 +7,7 @@ section.container div {
     overflow: hidden;
     width: 150px;
     height: 150px;
-    transition: .35s all;
+    transition: .1s all;
     background-color: lightgrey;
     margin-right: 5px;
 }
@@ -22,4 +22,9 @@ section.container div.blue {
 
 section.container div.green {
     background-color: darkseagreen;
+}
+
+section.container div.none {
+    background-color: lightgrey;
+    transition: 3s all;
 }
