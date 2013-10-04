@@ -8,6 +8,8 @@
 
     var $pointerIndex = 0;
 
+    var $timingOffset = 0;
+
     /**
      * @module Sequin
      * @author Adam Timberlake
@@ -43,9 +45,6 @@
              */
             with: function(classNames) {
 
-                // Reset our brain because `with` is the beginning of the end.
-//                $scope._brain = [];
-
                 var append = [];
 
                 classNames.forEach(function(className) {
@@ -54,7 +53,7 @@
                     append.push({
                         elements    : $window.document.getElementsByClassName(className),
                         classes     : { add: null, remove: null },
-                        milliseconds: 0
+                        afterMilliseconds: 0
                     });
 
                 });
@@ -120,7 +119,25 @@
             after: function(times) {
 
                 times.forEach(function(time, index) {
-                    $scope._brain[$pointerIndex][index].milliseconds = time;
+                    $scope._brain[$pointerIndex][index].afterMilliseconds = ($timingOffset + time);
+                });
+
+                // Calculate offset.
+                $timingOffset += Math.max.apply(null, times);
+
+                return this;
+
+            },
+
+            /**
+             * @method within
+             * @param times {Array}
+             * @return {Object}
+             */
+            within: function(times) {
+
+                times.forEach(function(time, index) {
+                    $scope._brain[$pointerIndex][index].withinMilliseconds = time;
                 });
 
                 return $scope.gate;
@@ -145,8 +162,6 @@
 
             run: function() {
 
-                console.log($scope._brain);
-
                 $scope._brain.forEach(function(instructions) {
 
                     instructions.forEach(function(instruction) {
@@ -154,18 +169,21 @@
                         setTimeout(function() {
 
                             var addClasses      = this.classes.add,
-                                removeClasses   = this.classes.remove;
+                                removeClasses   = this.classes.remove,
+                                transition      = (this.withinMilliseconds / 1000);
 
                             for (var index = 0, maxLen = instruction.elements.length; index < maxLen; index++) {
 
                                 var node = this.elements[index];
+
+                                node.style.transition = transition + 's all';
 
                                 node.classList.add(addClasses);
                                 node.classList.remove(removeClasses);
 
                             }
 
-                        }.bind(instruction), instruction.milliseconds);
+                        }.bind(instruction), instruction.afterMilliseconds);
 
                     });
 

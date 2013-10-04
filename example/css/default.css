@@ -7,24 +7,22 @@ section.container div {
     overflow: hidden;
     width: 150px;
     height: 150px;
-    transition: .1s all;
     background-color: lightgrey;
     margin-right: 5px;
 }
 
 section.container div.pink {
-    background-color: palevioletred;
+    background-color: mediumvioletred;
 }
 
 section.container div.blue {
-    background-color: lightsteelblue;
+    background-color: cornflowerblue;
 }
 
 section.container div.green {
-    background-color: darkseagreen;
+    background-color: yellowgreen;
 }
 
-section.container div.none {
-    background-color: lightgrey;
-    transition: 3s all;
+section.container div.orange {
+    background-color: coral;
 }
