@@ -19,13 +19,6 @@
          */
         successor: {},
 
-        /**
-         * @method with
-         * @return {Sequin.Elements}
-         */
-        then: function() {
-            return this.successor;
-        }
 
     };
 

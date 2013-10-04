@@ -19,14 +19,7 @@
          */
         successor: {},
 
-        /**
-         * @method after
-         * @param times {Array}
-         * @return {Sequin.Gate}
-         */
-        after: function(times) {
-            return this.successor;
-        }
+
 
     };
 

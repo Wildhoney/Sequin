@@ -12,6 +12,14 @@ section.container div {
     margin-right: 5px;
 }
 
-section.container div.red {
+section.container div.pink {
     background-color: palevioletred;
+}
+
+section.container div.blue {
+    background-color: lightsteelblue;
+}
+
+section.container div.green {
+    background-color: darkseagreen;
 }

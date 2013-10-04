@@ -1,40 +1,17 @@
 (function($window) {
 
     /**
+     * @property $scope
+     * @type {Object}
+     */
+    var $scope;
+
+    /**
      * @module Sequin
      * @author Adam Timberlake
      * @constructor
      */
-    $window.Sequin = function() {
-
-        // Where everything begins and repeats! Pass go and collect 200?
-        var elements = new $window.Sequin.Elements;
-
-        /**
-         * @type {Sequin.Gate}
-         */
-        this._modules.gate                  = new $window.Sequin.Gate;
-        this._modules.gate.successor        = elements;
-
-        /**
-         * @type {Sequin.Timer}
-         */
-        this._modules.timer                 = new $window.Sequin.Timer;
-        this._modules.timer.successor       = this._modules.gate;
-
-        /**
-         * @type {Sequin.Modifier}
-         */
-        this._modules.modifier              = new $window.Sequin.Modifier;
-        this._modules.modifier.successor    = this._modules.timer;
-
-        /**
-         * @type {Sequin.Elements}
-         */
-        this._modules.elements              = elements;
-        this._modules.elements.successor    = this._modules.modifier;
-
-    };
+    $window.Sequin = function() {};
 
     /**
      * @property prototype
@@ -47,16 +24,96 @@
          * @type {Array}
          * @private
          */
-        _modules: {},
+        _modules: [],
+
+        /**
+         * @property elements
+         * @type {Object}
+         */
+        elements: {
+
+            /**
+             * @method with
+             * @param elements {Array}
+             * @return {Sequin.Modifier}
+             */
+            with: function(elements) {
+                return $scope.modifier;
+            }
+
+        },
+
+        /**
+         * @property modifier
+         * @type {Object}
+         */
+        modifier: {
+
+            /**
+             * @method add
+             * @param classes {Array}
+             * @return {Sequin.Timer}
+             */
+            add: function(classes) {
+                return $scope.timer;
+            },
+
+            /**
+             * @method remove
+             * @param classes {Array}
+             * @return {Sequin.Timer}
+             */
+            remove: function(classes) {
+                return $scope.timer;
+            }
+
+        },
+
+        /**
+         * @property timer
+         * @type {Object}
+         */
+        timer: {
+
+            /**
+             * @method after
+             * @param times {Array}
+             * @return {Sequin.Gate}
+             */
+            after: function(times) {
+                return $scope.gate;
+            }
+
+        },
+
+        /**
+         * @property gate
+         * @type {Object}
+         */
+        gate: {
+
+            /**
+             * @method with
+             * @return {Sequin.Elements}
+             */
+            then: function() {
+                return $scope.elements;
+            }
+
+        },
 
         /**
          * @method with
-         * Accessor for the `with` method in `Sequin.Elements`. However, this one is invoked
-         * the very first time the user programmer accesses sequin.
+         * @param elements {Array}
          * @return {Function}
          */
-        with: function() {
-            return this._modules.elements.with();
+        with: function(elements) {
+
+            // Configure the scope for which we'll use instead of `this`.
+            $scope = this;
+
+            return this.elements.with(elements);
+
         }
 
     };

@@ -19,23 +19,7 @@
          */
         successor: {},
 
-        /**
-         * @method add
-         * @param classes {Array}
-         * @return {Sequin.Timer}
-         */
-        add: function(classes) {
-            return this.successor;
-        },
 
-        /**
-         * @method remove
-         * @param classes {Array}
-         * @return {Sequin.Timer}
-         */
-        remove: function(classes) {
-            return this.successor;
-        }
 
     };
 
