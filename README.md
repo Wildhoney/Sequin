@@ -10,10 +10,10 @@ As an initial idea, the syntax will resemble something like the following for th
 
 ```javascript
     sequin
-        .with(['.first-element', '.second-element', '.third-element'])
-        .add(['pink', 'blue', 'red'])
-        .after([20, 10, 5])
-        .then()
-        .with('.fourth-element')
-        .add('green');
+        .with(['first', 'second', 'third'])
+        .add(['pink', 'blue', 'green'])
+        .after([1000, 200, 500])
+        .then();
+        .with(['fourth'])
+        .add(['green']);
 ```
