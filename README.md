@@ -1,4 +1,4 @@
-Sequin
+Sequin.js
 ======
 
 <img src="https://cdn1.iconfinder.com/data/icons/toys/128/teddy_bear_toy_6.png" />
