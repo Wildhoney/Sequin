@@ -42,8 +42,6 @@
          */
         _brain: [],
 
-        _currentIndex: 0,
-
         /**
          * @property elements
          * @type {Object}
@@ -56,6 +54,8 @@
              * @return {Object}
              */
             with: function(classNames) {
+
+                classNames = $scope._toArray(classNames);
 
                 var append = [];
 
@@ -92,6 +92,8 @@
              */
             add: function(classNames) {
 
+                classNames = $scope._toArray(classNames);
+
                 classNames.forEach(function(className, index) {
                     $scope._brain[$pointerIndex][index].classes.add = className;
                 });
@@ -106,6 +108,8 @@
              * @return {Object}
              */
             remove: function(classNames) {
+
+                classNames = $scope._toArray(classNames);
 
                 classNames.forEach(function(className, index) {
                     $scope._brain[$pointerIndex][index].classes.remove = className;
@@ -130,8 +134,16 @@
              */
             after: function(times) {
 
-                times.forEach(function(time, index) {
-                    $scope._brain[$pointerIndex][index].afterMilliseconds = ($timingOffset + time);
+                times = $scope._toArray(times);
+
+                var time = 0;
+
+                $scope._brain[$pointerIndex].forEach(function(instruction, index) {
+
+                    var currentTime                 = times[index] || time;
+                    time                            = currentTime;
+                    instruction.afterMilliseconds   = currentTime;
+
                 });
 
                 // Calculate offset.
@@ -148,8 +160,16 @@
              */
             within: function(times) {
 
-                times.forEach(function(time, index) {
-                    $scope._brain[$pointerIndex][index].withinMilliseconds = time;
+                times = $scope._toArray(times);
+
+                var time = 0;
+
+                $scope._brain[$pointerIndex].forEach(function(instruction, index) {
+
+                    var currentTime                 = times[index] || time;
+                    time                            = currentTime;
+                    instruction.withinMilliseconds  = currentTime;
+
                 });
 
                 return $scope.gate;
@@ -218,6 +238,15 @@
 
             return this.elements.with(elements);
 
+        },
+
+        /**
+         * @method _toArray
+         * @param item {String|Number|Array}
+         * @private
+         */
+        _toArray: function(item) {
+            return Array.isArray(item) ? item : [item];
         }
 
     };
