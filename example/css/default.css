@@ -8,7 +8,7 @@ section.container div {
     width: 150px;
     height: 150px;
     transition: .35s all;
-    background-color: pink;
+    background-color: lightgrey;
     margin-right: 5px;
 }
 
