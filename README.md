@@ -26,11 +26,9 @@ sequin.with('first').add('pink').after(500).within(750).run();
 
  Whilst the simplest way to configure Sequin is by using individual nodes, it also supports concurrent animations. Each and every method accepts an array of values as well.
 
- * `sequin.with(['first', 'second'])`;
- * `.add(['red', 'blue'])`;
- * `.after([500, 1000])`;
- * `.within([1000, 2000])`;
- * `run();`
+ ```javascript
+ sequin.with(['first', 'second'].add(['red', 'blue']).after([500, 1000]).within([1000, 2000]).run();
+ ```
 
  <h3>Extrapolation</h3>
 
