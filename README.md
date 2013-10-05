@@ -27,8 +27,8 @@ sequin.with('first').add('pink').after(500).within(750).run();
 Whilst the simplest way to configure Sequin is by using individual nodes, it also supports concurrent animations. Each and every method accepts an array of values as well.
 
 ```javascript
-sequin .with(['first', 'second'].add(['red', 'blue']).after([500, 1000])
-    .within([1000, 2000]).run();
+sequin  .with(['first', 'second'].add(['red', 'blue']).after([500, 1000])
+        .within([1000, 2000]).run();
 ```
 
 <h3>Extrapolation</h3>
@@ -44,10 +44,10 @@ sequin.with(['first', 'second', 'third', 'fourth', 'fifth']).add('orange');
 Sequin also supports the concept of the promise pattern style `then`.
 
 ```javascript
-sequin .with('first').add('blue').after(250).within(100)
-    .then()
-    .with('first').remove('blue').after(250).within(4000)
-    .run();
+sequin  .with('first').add('blue').after(250).within(100)
+        .then()
+        .with('first').remove('blue').after(250).within(4000)
+        .run();
 ```
 
 Whereby the above adds the class name `blue` to the `first` element quickly, and then slowly removes the class afterwards.

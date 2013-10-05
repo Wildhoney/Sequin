@@ -209,22 +209,28 @@
 
                         setTimeout(function() {
 
-                            var addClasses      = this.classes.add,
-                                removeClasses   = this.classes.remove,
-                                transition      = (this.withinMilliseconds / 1000);
+                            var addClasses      = instruction.classes.add,
+                                removeClasses   = instruction.classes.remove,
+                                transition      = (instruction.withinMilliseconds / 1000);
 
                             for (var index = 0, maxLen = instruction.elements.length; index < maxLen; index++) {
 
-                                var node = this.elements[index];
+                                if (!instruction.elements.hasOwnProperty(index)) {
+                                    continue;
+                                }
 
+                                var node = instruction.elements[index];
+
+                                // Attach the transition.
                                 node.style.transition = transition + 's all';
 
+                                // Add or remove the necessary classes.
                                 node.classList.add(addClasses);
                                 node.classList.remove(removeClasses);
 
                             }
 
-                        }.bind(instruction), instruction.afterMilliseconds);
+                        }, instruction.afterMilliseconds);
 
                     });
 
@@ -253,6 +259,7 @@
         /**
          * @method _toArray
          * @param item {String|Number|Array}
+         * @return {Array}
          * @private
          */
         _toArray: function(item) {
