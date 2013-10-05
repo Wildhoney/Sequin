@@ -27,13 +27,13 @@
      * @author Adam Timberlake
      * @constructor
      */
-    $window.Sequin = function() {};
+    var Sequin = function() {};
 
     /**
      * @property prototype
      * @type {Object}
      */
-    $window.Sequin.prototype = {
+    Sequin.prototype = {
 
         /**
          * @property _brain
@@ -264,7 +264,7 @@
     document.addEventListener('DOMContentLoaded', function() {
 
         // Let the chaos begin!
-        $window.sequin = new $window.Sequin();
+        $window.sequin = new Sequin();
 
     }, false);
 
