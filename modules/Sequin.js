@@ -87,32 +87,41 @@
 
             /**
              * @method add
-             * @param classNames {Array}
+             * @param classNames {Array|String}
              * @return {Object}
              */
             add: function(classNames) {
-
-                classNames = $scope._toArray(classNames);
-
-                classNames.forEach(function(className, index) {
-                    $scope._brain[$pointerIndex][index].classes.add = className;
-                });
-
-                return $scope.timer;
-
+                return this._add('add', classNames);
             },
 
             /**
              * @method remove
-             * @param classNames {Array}
+             * @param classNames {Array|String}
              * @return {Object}
              */
             remove: function(classNames) {
+                return this._add('remove', classNames);
+            },
+
+            /**
+             * @method _add
+             * @param method {String}
+             * @param classNames {Array|String}
+             * @return {Object}
+             * @private
+             */
+            _add: function(method, classNames) {
 
                 classNames = $scope._toArray(classNames);
 
-                classNames.forEach(function(className, index) {
-                    $scope._brain[$pointerIndex][index].classes.remove = className;
+                var className = 0;
+
+                $scope._brain[$pointerIndex].forEach(function(instruction, index) {
+
+                    var currentClass            = (classNames[index] || className);
+                    className                   = currentClass;
+                    instruction.classes[method] = currentClass;
+
                 });
 
                 return $scope.timer;
