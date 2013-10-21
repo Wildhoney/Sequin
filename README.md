@@ -1,7 +1,9 @@
-<img src="https://cdn1.iconfinder.com/data/icons/toys/128/teddy_bear_toy_6.png" />
-
 Sequin.js
 =====
+
+<img src="https://cdn1.iconfinder.com/data/icons/toys/128/teddy_bear_toy_6.png" />
+
+<img src="https://badge.fury.io/js/sequin-js.png" />
 
 Sequin allows you to create animations easily using CSS classes. Transition durations are set automatically and all you need to concern yourself with is how each state differs via your classes.
 
