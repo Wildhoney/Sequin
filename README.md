@@ -5,7 +5,8 @@ Sequin.js
 
 <img src="https://badge.fury.io/js/sequin-js.png" />
 
-Install Sequin.js via npm: `npm install sequin-js`
+* Install Sequin.js via npm: `npm install sequin-js`
+* Install Sequin.js via Bower: `bower install sequin-js`
 
 Sequin allows you to create animations easily using CSS classes. Transition durations are set automatically and all you need to concern yourself with is how each state differs via your classes.
 
